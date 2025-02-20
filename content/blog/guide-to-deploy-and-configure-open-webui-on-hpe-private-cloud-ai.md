@@ -6,9 +6,9 @@ author: Santosh Nagaraj, Guoping Jia
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-[Open WebUI ](https://openwebui.com/)is a popular and user-friendly, self hosted AI platform designed to operate entirely offline. It supports various LLM runners like Ollama and OpenAI-compatible APIs. 
+Every enterprise is getting into AI, to explore the possibilities of enhancing their current workstreams and also explore new use-cases. One of the vital use-case is evaluating and choosing the right LLMs that suits the enterprise requirements. [Open WebUI ](https://openwebui.com/)is a popular and user-friendly, self hosted AI platform designed to operate entirely offline. It has a Web-based interface that allows users to interact with AI models, such as Large Language models (LLMs). It simplifies working with AI by providing a graphical user interface (GUI) instead of relying on command-line tools.
 
-This blog post provides a step-by-step guide on how to deploy and configure Open Webui in HPE Greenlake Private Cloud AI. The simplicity of using built-in models and importing popular models is demonstrated here.
+This blog post provides a step-by-step guide on how to deploy and configure Open WebUI on HPE Greenlake Private Cloud AI. The simplicity of using built-in models and importing popular models are demonstrated here.
 
 # Overview
 
@@ -20,18 +20,10 @@ growth and utilization of AI use cases. With this proven foundation, HPE Private
 scientist productivity and helps overcome common challenges in operationalizing AI by delivering a flexible,\
 pretested, AI-optimized private cloud.
 
-
-
 # Prerequisites
-
-
 
 # Deploy Open WebUI
 
-
-
 # Download Models
-
-
 
 # Conclusion
