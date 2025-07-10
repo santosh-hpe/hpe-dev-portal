@@ -14,11 +14,13 @@ This blog post walks you through deploying Flowise on HPE PCAI to build a modern
 
 [HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*.
 
+HPE Machine Learning Inference Software is a user-friendly solution designed to simplify and control the deployment, management, and monitoring of machine learning (ML) models, including LLMs, at any scale.
+
 HPE PCAI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (including HPE MLIS), and a flexible *Import Framework,* that enables organizations *to* deploy their own applications or third-party solutions like FlowiseAI. 
 
 ![](/img/importframework.jpg)
 
-HPE Machine Learning Inference Software is a user-friendly solution designed to simplify and control the deployment, management, and monitoring of machine learning (ML) models, including LLMs, at any scale.
+
 
 ## What is Flowise?
 
@@ -56,16 +58,27 @@ These updates are implemented in the revised *Flowise* Helm charts, is availab
 
 Use the Import Framework in HPE PCAI to deploy Flowise.
 
-```bash
-helm install flowiseai ./flowiseai-helm
-helm install hpe-mlis ./hpe-mlis-helm
-```
+![](/img/flowise-deploy-1.jpg)
 
-Once deployed, Flowise will appear as a tile under Tools & Frameworks in the PCAI Data Science tab.
+![](/img/flowise-deploy-2.jpg)
+
+![](/img/flowise-deploy-3.jpg)
+
+![](/img/flowise-deploy-4.jpg)
+
+### 3. Access Flowise UI via its Endpoint
+
+After deployment, Flowise will appear as a tile under *Tools & Frameworks / Data Engineering* tab.
+
+![](/img/flowsie-deployed.jpg)
+
+Click the *Open* button on the *Flowise* Tile, or click on the *Endpoint* URL to launch the Flowise login page. Setup the credentials and login.
+
+![](/img/flowise-home-7-10-2025.jpg)
 
 - - -
 
-## Configuring the Chatbot
+## Deploy a LLM in HPE MLIS
 
 ### 1. Access the FlowiseAI UI
 
