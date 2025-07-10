@@ -22,53 +22,46 @@ HPE Machine Learning Inference Software is a user-friendly solution designed to 
 
 ## What is Flowise?
 
-[Flowise](https://flowiseai.com/) is an open source generative AI development platform for building AI Agents and LLM workflows. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. FlowiseAI’s modular architecture makes it easy to customize and extend chatbot capabilities for enterprise use cases.
+[Flowise](https://flowiseai.com/) is an open source generative AI development platform for building AI Agents and LLM workflows. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. Flowise provides modular building blocks for you to build any agentic systems, from simple compositional workflows to autonomous agents.
 
-- - -
-
-## Prerequisites
-
-* Access to an HPE PCAI environment with Import Framework enabled.
-* Docker Engine (v28.1.1 or later) and Docker CLI installed.
-* Helm CLI for deploying applications to Kubernetes.
-* (Optional) Access to a private container registry (e.g., Harbor) for storing custom images.
-
-- - -
-
-## Deploying FlowiseAI and HPE MLIS on HPE PCAI
+## Deploying Flowise on HPE PCAI via *Import Framework*
 
 ### 1. Prepare the Helm Charts
 
-Obtain the official Helm charts for FlowiseAI and HPE MLIS. Place them in your `pcai-helm-examples` repository under the appropriate directories.
+Obtain the helm chart for Flowise v5.1.1 from [artifacthub.io](https://artifacthub.io/packages/helm/cowboysysop/flowise). Following changes to the helm chart are needed to deploy it on HPE PCAI.
 
-### 2. Customize Values for PCAI
+Add the following YAML manifest files to *templates/ezua/* directory:
 
-Update the `values.yaml` files to configure endpoints, storage, and authentication. For example, expose FlowiseAI via Istio and set up persistent storage for conversation logs.
+* *virtualService.yaml*: Defines an Istio *VirtualService* to configure routing rules for incoming requests. 
+* *kyverno.yaml*: A Kyverno *ClusterPolicy* that automatically adds required labels to the deployment.
 
-```yaml
-# Example snippet for FlowiseAI values.yaml
+Updates to *values.yaml* file
+
+* Set resource request/limits.
+* Update the PVC size
+* Add the following *'ezua'* section to configure the *Istio Gateway* and expose the endpoint.
+
+```
 ezua:
   virtualService:
-    endpoint: "chatbot.${DOMAIN_NAME}"
+    endpoint: "flowise.${DOMAIN_NAME}"
     istioGateway: "istio-system/ezaf-gateway"
-
-persistence:
-  enabled: true
-  size: 10Gi
 ```
 
-For HPE MLIS, configure the model registry and inference endpoints to point to your desired LLMs.
+Reference document for 'Import Framework' [Prerequisites.](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html)
 
-### 3. Deploy with the Import Framework
+These updates are implemented in the revised *Flowise* Helm charts, is available in the *GitHub* repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/flowise)With these customizations, *Flowise* can now be deployed on HPE PCAI using '*Import Framework*'
 
-Use the Import Framework in HPE PCAI to deploy both FlowiseAI and HPE MLIS:
+### 2. Deploy Flowise via Import Framework
+
+Use the Import Framework in HPE PCAI to deploy Flowise.
 
 ```bash
 helm install flowiseai ./flowiseai-helm
 helm install hpe-mlis ./hpe-mlis-helm
 ```
 
-Once deployed, FlowiseAI and MLIS will appear as tiles under Tools & Frameworks in the PCAI Data Science tab.
+Once deployed, Flowise will appear as a tile under Tools & Frameworks in the PCAI Data Science tab.
 
 - - -
 
