@@ -1,14 +1,14 @@
 ---
-title: Build your first Chatbot on HPE Private Cloud AI using FlowiseAI and HPE MLIS
+title: Build your first Chatbot on HPE Private Cloud AI using Flowise and HPE MLIS
 date: 2025-07-10T10:46:47.270Z
 priority: ""
 author: Santosh Nagaraj
 authorimage: /img/santosh-picture-192.jpg
 disable: false
 ---
-In today’s AI-driven landscape, conversational interfaces are transforming how organizations interact with users and automate workflows. Building a secure, scalable, and customizable chatbot solution requires robust infrastructure and flexible AI tooling. HPE Private Cloud AI (PCAI) provides a powerful platform for deploying and managing AI workloads, while FlowiseAI and HPE MLIS (Machine Learning Inference Software) offer the tools to rapidly build, deploy, and manage chatbots powered by large language models (LLMs).
+In today’s AI-driven landscape, conversational interfaces are transforming how organizations interact with users and automate workflows. Building a secure, scalable, and customizable chatbot solution requires robust infrastructure and flexible AI tooling. HPE Private Cloud AI (PCAI) provides a powerful platform for deploying and managing AI workloads, while Flowise and HPE MLIS (Machine Learning Inference Software) offer the tools to rapidly build, deploy, and manage chatbots powered by large language models (LLMs).
 
-This blog post walks you through deploying FlowiseAI on HPE PCAI to build a modern chatbot solution. By leveraging these technologies, organizations can accelerate chatbot development, ensure data privacy, and maintain full control over their AI lifecycle.
+This blog post walks you through deploying Flowise on HPE PCAI to build a modern chatbot solution. By leveraging these technologies, organizations can accelerate chatbot development, ensure data privacy, and maintain full control over their AI lifecycle.
 
 ## HPE Private Cloud AI
 
@@ -16,17 +16,13 @@ This blog post walks you through deploying FlowiseAI on HPE PCAI to build a mode
 
 HPE PCAI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (including HPE MLIS), and a flexible *Import Framework,* that enables organizations *to* deploy their own applications or third-party solutions like FlowiseAI. 
 
+![](/img/importframework.jpg)
+
 HPE Machine Learning Inference Software is a user-friendly solution designed to simplify and control the deployment, management, and monitoring of machine learning (ML) models, including LLMs, at any scale.
 
-## What is FlowiseAI?
+## What is Flowise?
 
-FlowiseAI is an open-source, low-code platform for building LLM-powered applications and chatbots. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. FlowiseAI’s modular architecture makes it easy to customize and extend chatbot capabilities for enterprise use cases.
-
-- - -
-
-## What is HPE MLIS?
-
-HPE Machine Learning Inference Software (MLIS) is a comprehensive framework for deploying, serving, and managing AI models at scale. MLIS supports model versioning, monitoring, and secure inference, making it ideal for production-grade AI applications on HPE PCAI.
+[Flowise](https://flowiseai.com/) is an open source generative AI development platform for building AI Agents and LLM workflows. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. FlowiseAI’s modular architecture makes it easy to customize and extend chatbot capabilities for enterprise use cases.
 
 - - -
 
