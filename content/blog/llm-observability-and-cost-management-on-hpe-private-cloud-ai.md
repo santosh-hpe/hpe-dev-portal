@@ -23,33 +23,149 @@ HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (in
 
 ## Deploy Langfuse and LiteLLM via Import Framework
 
-1. ### Prepare the Helm charts for Langfuse
+### 1. Prepare the Helm charts for Langfuse
 
-   Obtain the helm chart for Langfuse from https://github.com/langfuse/langfuse-k8s and implement the prerequisites. Here's the [reference document](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html) for the import framework prerequisites.
+Obtain the helm chart for Langfuse from https://github.com/langfuse/langfuse-k8s and implement the prerequisites. Here's the [reference document](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html) for the import framework prerequisites.
 
-   These updates are implemented in the revised Langfuse Helm charts, and are available in the GitHub repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/langfuse)With these customizations, *Langfuse* can now be deployed on HPE Private Cloud AI using *Import Framework.*
-2. ### Deploy and configure Langfuse
+These updates are implemented in the revised Langfuse Helm charts, and are available in the GitHub repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/langfuse)With these customizations, *Langfuse* can now be deployed on HPE Private Cloud AI using *Import Framework.*
 
-   Use import framework in HPE Private Cloud AI to deploy Langfuse.
+### 2. Deploy and configure Langfuse
 
-   ![](/img/screenshot-2026-03-06-152537.png)
+Use import framework in HPE Private Cloud AI to deploy Langfuse.
 
-   ![](/img/screenshot-2026-03-06-152941.png)
+![](/img/screenshot-2026-03-06-152537.png)
 
-   ![](/img/screenshot-2026-03-06-153003.png)
+![](/img/screenshot-2026-03-06-152941.png)
 
-   ![](/img/screenshot-2026-03-06-153018.png)
-3. ### Prepare the Helm charts for LiteLLM
-4. ### Deploy and configure LiteLLM
+![](/img/screenshot-2026-03-06-153003.png)
 
-## Deploy LLM in HPE MLIS
+![](/img/screenshot-2026-03-06-153018.png)
 
-### Configure LiteLLM
+After few minutes, Langfuse gets deployed in HPE Private Cloud AI and will be in 'Ready' state.
 
-### LLM observability and cost analysis in Langfuse
+![](/img/screenshot-2026-03-06-153639.png)
+
+### 3. Configure Langfuse and create API Keys
+
+Access Langfuse application deployed on HPE Private Cloud AI by creating a new sign-in account. Create an Organization and Project in Langfuse and create a new API Key for this project. *Settings->API Keys-> create new API Keys*.
+
+![](/img/screenshot-2026-03-06-153759.png)
+
+Secure the generated API Keys, these will be used while deploying LiteLLM. 
+
+### 4. Prepare the Helm charts for LiteLLM
+
+Obtain the helm chart for LiteLLM from [litellm-helm](https://github.com/BerriAI/litellm/tree/main/deploy/charts/litellm-helm) repository and implement the prerequisites. Here's the [reference document](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html) for the import framework prerequisites.
+
+These updates are implemented in the revised LiteLLM Helm charts, and are available in the GitHub repository [ai-solution-eng/frameworks.](https://github.com/ai-solution-eng/frameworks/tree/main/litellm-helm)
+
+### 5. Deploy and configure LiteLLM
+
+Use import framework in HPE Private Cloud AI to deploy LiteLLM.
+
+![](/img/screenshot-2026-03-06-160236.png)
+
+![](/img/screenshot-2026-03-06-160303.png)
+
+Set the default username/password (UI_USERNAME/UI_PASSWORD) for LiteLLM application and Langfuse details (LANGFUSE_HOST, LANGFUSE_PUBIC_KEY, LANGFUSE_SECRET_KEY - Obtained in Step#3) in *values.yaml* as shown below. 
+
+![](/img/screenshot-2026-03-06-160517.png)
+
+![](/img/screenshot-2026-03-06-160546.png)
+
+After few minutes, LiteLLM gets deployed in HPE Private Cloud AI and will be in 'Ready' state.
+
+![](/img/screenshot-2026-03-06-161531.png)
+
+## 6. Deploy LLM in HPE MLIS
+
+HPE MLIS is accessed by clicking on *HPE MLIS* tile in *Tools & Frameworks* tab.
+
+![](/img/screenshot-2026-03-06-162245.png)
+
+Deploy a pre-packaged LLM (llama-3.1-8b-instruct) in HPE MLIS, you need to create a new deployment as shown below.
+
+![](/img/screenshot-2026-03-06-162547.png)
+
+Click on 'Create Deployment', give a name to the new deployment, choose the appropriate packaged model, and set the scaling factor.
+
+![](/img/screenshot-2026-03-06-162617.png)
+
+![](/img/screenshot-2026-03-06-162630.png)
+
+![](/img/screenshot-2026-03-06-162649.png)
+
+![](/img/screenshot-2026-03-06-162710.png)
+
+![](/img/screenshot-2026-03-06-162710.png)
+
+After few minutes, the deployment status will be 'Ready'.
+
+![](/img/screenshot-2026-03-06-162732.png)
+
+### 7. LLM endpoint and API keys
+
+LLM endpoint details can be obtained via GenAI->Model Endpoints
+
+![](/img/screenshot-2026-03-06-163934.png)
+
+Generate an API token for the LLM via, Actions -> Generate API Token.
+
+![](/img/screenshot-2026-03-06-164059.png)
+
+![]()
+
+After generating and securing the API token, we will configure LiteLLM with the LLM details. 
+
+### 8. Configure LiteLLM
+
+Launch the LiteLLM application deployed on HPE Private Cloud AI and sign-in using the credentials set in *values.yaml* 
+
+![](/img/screenshot-2026-03-06-165129.png)
+
+Add the LLM information, Models + EndPoints -> Add Model and provide the LLM details like Provider, LLM Model Name, API Base and OpenAI API Key.
+
+![](/img/screenshot-2026-03-06-165511.png)
+
+Now, create a new virtual key in LiteLLM to access the Models, 
+
+![](/img/screenshot-2026-03-06-165904.png)
+
+ Using the LiteLLM virtual Key and the LiteLLM URL, we can access the LLM (meta/llama-3.1). Sample code snippet below, replace your LLMLite API Key in the code.
+
+```
+import requests
+import json
+
+import os
+
+LITELLM_PROXY_API_KEY = "sk-***********"
+
+url = 'https://litellm.ai-application.pcai0109.dc15.hpecolo.net/chat/completions'
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': f'Bearer {LITELLM_PROXY_API_KEY}'
+}
+data = {
+    "model": "openai/meta/llama-3.1-8b-instruct",
+    "messages": [
+        {
+            "role": "user",
+            "content": "Describe Angkor Wat in 300 words"
+        }
+    ]
+}
+
+response = requests.post(url, headers=headers, json=data, verify=False)
+print(json.dumps(response.json(), indent=2))
+```
+
+### 9. LLM observability and cost analysis in Langfuse
+
+
 
 ## Conclusion
 
-By combining capabilities of LiteLLM and Langfuse with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to observe and perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
+By combining capabilities of LiteLLM and Langfuse with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to observe perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
 
 Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
