@@ -2,7 +2,7 @@
 title: LLM observability and cost management on HPE Private Cloud AI
 date: 2026-03-06T06:06:26.225Z
 author: Santosh Nagaraj
-authorimage: /img/Avatar1.svg
+authorimage: /img/santosh-picture.jpg
 disable: false
 ---
 LLM observability and cost management are critical for deploying reliable, secure, and financially sustainable AI applications. By tracking metrics like token usage, latency, and output quality, teams can prevent runaway costs, reduce hallucinations, and ensure regulatory compliance.
