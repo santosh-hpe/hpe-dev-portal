@@ -15,7 +15,7 @@ This blog post walks you through deployment and configuration of LiteLLM and Lan
 
 [HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA Inference Microservices (NIM)* LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
 
-HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the **deployment, management, and monitoring** of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on **Large Language Models (LLMs)**. 
+HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on Large Language Models (LLMs). 
 
 HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (including HPE Machine Learning Inference Software), and a flexible *Import Framework* that enables organizations to deploy their own applications or third-party solutions, like LiteLLM and Langfuse.
 
