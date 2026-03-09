@@ -131,7 +131,9 @@ Now, create a new virtual key in LiteLLM to access the Models,
 
 ![](/img/screenshot-2026-03-06-165904.png)
 
- Using the LiteLLM virtual Key and the LiteLLM URL, we can access the LLM (meta/llama-3.1). Sample code snippet below, replace your LLMLite API Key in the code.
+Using the LiteLLM virtual Key and the LiteLLM URL, we can access the LLM (meta/llama-3.1) and use it in any AI application.
+
+Sample code snippet to call meta/llama via LiteLLM. (Replace your LiteLLM API Key in the code)
 
 ```
 import requests
@@ -160,9 +162,21 @@ response = requests.post(url, headers=headers, json=data, verify=False)
 print(json.dumps(response.json(), indent=2))
 ```
 
+ 
+
 ### 9. LLM observability and cost analysis in Langfuse
 
+Access the Langfuse application deployed on HPE Private Cloud AI and login using the credentials. The Traces of the LLM calls will appear under Observability -> Tracing.
 
+![](/img/screenshot-2026-03-09-113852.png)
+
+Home page of the project shows various metrics from LLM traces, which provides details on LLM usage, associated costs, etc.
+
+![](/img/screenshot-2026-03-09-114413.png)
+
+Dashboards with custom widgets can be created in Langfuse to observe various parameters of LLM traces. Sample custom dashboard created in Langfuse.
+
+![](/img/screenshot-2026-03-09-114052.png)
 
 ## Conclusion
 
