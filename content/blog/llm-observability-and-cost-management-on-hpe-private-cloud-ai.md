@@ -1,7 +1,7 @@
 ---
 title: LLM observability and cost management on HPE Private Cloud AI
 date: 2026-03-06T06:06:26.225Z
-author: Santosh Nagaraj
+author: Santosh Nagaraj & Claudio Calderon
 authorimage: /img/santosh-picture.jpg
 disable: false
 ---
